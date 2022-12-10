@@ -4,11 +4,10 @@
   become: yes
 
   tasks:
-  
   - name: kubect service
     shell:
 	  cmd: kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080 --name node-port-service
-	  
+
   - name: kubect scale
     shell:
 	  cmd: kubectl scale deployments/kubernetes-bootcamp --replicas=4
