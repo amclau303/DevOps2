@@ -1,0 +1,36 @@
+- name: A playbook to install Kubernetes on a VM
+  hosts: localhost
+  user: ubuntu
+  become: yes
+
+  tasks:
+  
+  - name: Update APT
+    apt:
+      update_cache: yes
+	  
+  - name: Install dependency packages
+    apt:
+      name={{ item }}
+    with_items:
+      - apt-transport-https
+	  
+  - name: Curls
+    shell:
+      cmd: curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+	  
+  - name: Echo
+	shell:
+	  cmd: echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+	  
+  - name: Update APT again
+    apt:
+      update_cache: yes	  
+	  
+  - name: Install Kubectl
+    apt:
+      name={{ item }}
+    with_items:
+      - kubectl
+	  
+	  

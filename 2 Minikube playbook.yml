@@ -1,0 +1,23 @@
+- name: A playbook to install Minikube on a VM
+  hosts: localhost
+  user: ubuntu
+  become: yes
+
+  tasks:
+  
+  - name: Minikube curl execute
+    shell:
+      cmd: curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+
+  - name: Set file permissions
+    shell:
+      cmd: chmod +x minikube 
+  
+  - name: Moves files
+    shell:
+      cmd: sudo mv minikube /usr/local/bin/
+
+  - name: Start Minikube
+    shell:
+      cmd: minikube start
+	
