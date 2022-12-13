@@ -1,7 +1,6 @@
 - name: Docker image pull and deploy
   hosts: localhost
   user: ubuntu
-  become: yes
 
   tasks:
   - name: Docker image pull
@@ -10,4 +9,4 @@
 
   - name: kubernetes deploy
     shell:
-      cmd: kubectl create deployment kube-server --image=amclau303/project:1.0
+      cmd: kubectl create deployment kubenetes-server --image=amclau303/project:1.0
