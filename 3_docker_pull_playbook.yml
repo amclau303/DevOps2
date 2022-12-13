@@ -6,8 +6,8 @@
   tasks:
   - name: Docker image pull
     shell:
-	  cmd: docker pull amclau303/project:1
+      cmd: docker pull amclau303/project:1
 
   - name: kubernetes deploy
     shell:
-	  cmd: kubectl create deployment kube-server --image=amclau303/project:1
+      cmd: kubectl create deployment kube-server --image=amclau303/project:1
