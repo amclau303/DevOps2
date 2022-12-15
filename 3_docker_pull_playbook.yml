@@ -5,7 +5,7 @@
   tasks:
   - name: Docker image pull
     shell:
-      cmd: docker pull amclau303/project:1
+      cmd: docker pull amclau303/project:1.0
 
   - name: kubernetes deploy
     shell:
