@@ -9,4 +9,4 @@
 
   - name: kubernetes deploy
     shell:
-      cmd: kubectl create deployment kubenetes-server --image=amclau303/project:1.0
+      cmd: kubectl create deployment kubernetes-server --image=amclau303/project:1.0
