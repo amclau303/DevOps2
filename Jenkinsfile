@@ -36,11 +36,9 @@ pipeline {
 
             stage('Deply to kubernetes') {
                 steps {
-                    sshagent(credentials: ['production-ssh']) {
-                            script {
-                                sh 'ssh ubuntu@54.224.167.126 kubectl set image deployments/kubernetes-server project=' + dockerImage
-                            }
-                    }
+                script {
+                    sh 'ssh ubuntu@54.224.167.126 kubectl set image deployments/kubernetes-server project=' + dockerImage
+                }
                 }
             }
     }
