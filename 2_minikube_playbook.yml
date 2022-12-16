@@ -1,7 +1,6 @@
 - name: A playbook to install Minikube on a VM
   hosts: localhost
   user: ubuntu
-  become: yes
 
   tasks:
     - name: Minikube curl execute
