@@ -37,7 +37,7 @@ pipeline {
             stage('Deply to kubernetes') {
                 steps {
                 script {
-                    sh 'ssh ubuntu@54.224.167.126 kubectl set image deployments/kubernetes-server project=' + registry + ":$BUILD_NUMBER"
+                    sh 'ssh ubuntu@44.211.133.10 kubectl set image deployments/kubernetes-server project=' + registry + ":$BUILD_NUMBER"
                 }
                 }
             }
