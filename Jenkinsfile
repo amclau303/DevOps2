@@ -23,6 +23,7 @@ pipeline {
                     dockerImage.push()
                 }
             }
+        }
             stage('Run docker container') {
                 steps {
                     echo 'Running docker container'
@@ -39,6 +40,6 @@ pipeline {
                     }
                 }
             }
-        }
+
     }
 }
