@@ -30,7 +30,7 @@ pipeline {
             stage('Run docker container') {
                 steps {
                     echo 'Running docker container'
-                    sh 'docker run --rm --name cw2container -p 80:80 -d' + dockerImage
+                    sh 'docker run --rm --name cw2container -p 80:80 -d ' + dockerImage
                 }
             }
 
@@ -38,7 +38,7 @@ pipeline {
                 steps {
                     sshagent(credentials: ['production-ssh']) {
                             script {
-                                sh 'ssh ubuntu@54.224.167.126 kubectl set image deployments/kube-server final=' + dockerImage
+                                sh 'ssh ubuntu@54.224.167.126 kubectl set image deployments/kubernetes-server project=' + dockerImage
                             }
                     }
                 }
