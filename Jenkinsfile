@@ -30,7 +30,7 @@ pipeline {
             stage('Run docker container') {
                 steps {
                     echo 'Running docker container :('
-                    sh 'docker run --rm --name cw2container -p 80:80 -d ' + dockerImage
+                    sh 'docker run --rm --name cw2container -p 80:80 -d ' + registry + ":$BUILD_NUMBER"
                 }
             }
 
