@@ -19,11 +19,14 @@ pipeline {
         stage('Push docker image to dockerhub') {
             steps {
                 echo 'Pushing docker image'
-                docker.withRegistry('', registryCredential) {
-                    dockerImage.push()
+                script {
+                    docker.withRegistry('', registryCredential) {
+                        dockerImage.push()
+                    }
                 }
             }
         }
+
             stage('Run docker container') {
                 steps {
                     echo 'Running docker container'
@@ -40,6 +43,5 @@ pipeline {
                     }
                 }
             }
-
     }
 }
