@@ -34,7 +34,6 @@ pipeline {
                 steps {
                     sshagent(credentials: ['production-ssh']) {
                             script {
-                                sh 'ssh-keyscan -H 54.224.167.126>> ~/.ssh/known_hosts'
                                 sh 'ssh ubuntu@54.224.167.126 kubectl set image deployments/kube-server final=' + dockerImage
                             }
                     }
